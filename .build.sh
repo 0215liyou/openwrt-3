@@ -21,18 +21,9 @@ git config --global user.name $id
 
 CLONE() {
 git clone https://github.com/R619AC-OpenWrt/OpenWrt-Packages package/Boos --depth=1 
-wget -O .config https://gitlab.com/$id//openwrt/-/raw/master/.config && wget -O package/base-files/files/etc/profile https://gitlab.com/$id/openwrt/-/raw/master/profile && wget -O package/lean/autocore/files/arm/sbin/cpuinfo https://gitlab.com/$id/openwrt/-/raw/master/cpuinfo_arm && wget -O package/base-files/files/etc/banner https://gitlab.com/$id/openwrt/-/raw/master/banner
+wget -O .config https://gitlab.com/$id//openwrt/-/raw/master/.config-a
 ./scripts/feeds update -a -f
 ./scripts/feeds install -a -f
-}
-
-MAIN() {
-Version_File="package/lean/default-settings/files/zzz-default-settings"
-Old_Version="$(egrep -o "R[0-9]+\.[0-9]+\.[0-9]+" ${Version_File})"
-sed -i "s?By?By $id ?g" package/base-files/files/etc/banner
-sed -i "s?Openwrt?Openwrt ${Openwrt_Version}?g" package/base-files/files/etc/banner
-sed -i '/profile/d' package/base-files/files/lib/upgrade/keep.d/base-files-essential
-sed -i "s?${Old_Version}?${Old_Version} Compiled by $id ?g" ${Version_File}
 }
 
 
@@ -56,16 +47,15 @@ GITHUB_UPLOAD() {
 cd ~/UPLOAD
 git init
 git remote add origin https://$id:$ss@github.com/$id/updater.git
-git checkout -b OpenWrt
+git checkout -b OpenWrt-Test
 git add .
 git commit -sm "$(date +"%m%d-%H%S")"
-git push -uf origin OpenWrt    
+git push -uf origin OpenWrt-Test    
 
 }
 
 SETUP
 CLONE
-MAIN
 BUILD
 UPLOAD
 GITHUB_UPLOAD
