@@ -28,3 +28,13 @@ steps:
         from_secret: ss
     commands:
       - bash .build-b.sh
+
+  - name: setup&compile for ax3600
+    image: ubuntu:latest
+    environment:
+      id:
+        from_secret: id
+      ss:
+        from_secret: ss
+    commands:
+      - bash .build-c.sh
