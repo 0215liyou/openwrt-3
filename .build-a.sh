@@ -21,7 +21,7 @@ git config --global user.name $id
 
 CLONE() {
 git clone https://github.com/R619AC-OpenWrt/OpenWrt-Packages package/Boos --depth=1 
-wget -O .config https://gitlab.com/$id//openwrt/-/raw/master/.config-a
+wget -O .config https://gitlab.com/$id//openwrt/-/raw/master/.config-a && wget -O package/kernel/mac80211/files/lib/wifi/mac80211.sh https://gitlab.com/Boos4721/openwrt/-/raw/master/mac80211.sh
 ./scripts/feeds update -a -f
 ./scripts/feeds install -a -f
 }
