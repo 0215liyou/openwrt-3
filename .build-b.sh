@@ -50,7 +50,7 @@ git remote add origin https://$id:$ss@github.com/$id/releases.git
 git checkout -b CR660X
 git add .
 git commit -sm "$(date +"%m%d-%H%S")"
-git push -u origin CR660X
+git push -uf origin CR660X
 
 }
 
