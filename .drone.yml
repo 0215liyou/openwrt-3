@@ -18,7 +18,7 @@ steps:
         from_secret: ss
     commands:  
       - bash .build-a.sh
-steps:
+
   - name: setup&compile for cr660x
     image: ubuntu:latest
     environment:
