@@ -37,7 +37,7 @@ BUILD_END=$(date +"%s")
 }
 
 UPLOAD() {
-mkdir -p ~/UPLOAD && cd ~/src/bin/targets/*/* && mv *.bin *.ubi sha256sums ~/UPLOAD/      
+mkdir -p ~/UPLOAD && cd ~/src/bin/targets/*/* && mv *.bin *.ubi ~/UPLOAD/      
 curl -fsSL git.io/file-transfer | sh
 ./transfer cow --block 2621440 -s -p 64 --no-progress ~/UPLOAD 2>&1 | tee cowtransfer.log
 echo "cat cowtransfer.log | grep https"
@@ -50,7 +50,7 @@ git remote add origin https://$id:$ss@github.com/$id/updater.git
 git checkout -b OpenWrt-Test
 git add .
 git commit -sm "$(date +"%m%d-%H%S")"
-git fetch && git pull
+git fetch && git pull origin OpenWrt-Test
 git push -u origin OpenWrt-Test    
 
 }
