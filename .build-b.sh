@@ -37,7 +37,7 @@ BUILD_END=$(date +"%s")
 }
 
 UPLOAD() {
-mkdir -p ~/UPLOAD && cd ~/src/bin/targets/*/* && *.bin *.ubi ~/UPLOAD/      
+mkdir -p ~/UPLOAD && cd ~/src/bin/targets/*/* && mv *.bin *.ubi ~/UPLOAD/      
 curl -fsSL git.io/file-transfer | sh
 ./transfer cow --block 2621440 -s -p 64 --no-progress ~/UPLOAD 2>&1 | tee cowtransfer.log
 echo "cat cowtransfer.log | grep https"
