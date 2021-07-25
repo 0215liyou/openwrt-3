@@ -1585,7 +1585,7 @@ define Device/xiaomi_mi-router-cr660x
   IMAGE/factory.bin := append-kernel | pad-to $$(KERNEL_SIZE) | append-ubi | \
 	check-size
   DEVICE_VENDOR := Xiaomi
-  DEVICE_MODEL := Mi Router CR660x
+  DEVICE_MODEL := Mi Router CR660X
   DEVICE_PACKAGES += kmod-mt7915e wpad-openssl uboot-envtools
   SUPPORTED_DEVICES += xiaomi,mi-router-cr6606
 endef
