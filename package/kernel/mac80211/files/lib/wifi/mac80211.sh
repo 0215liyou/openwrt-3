@@ -168,7 +168,7 @@ detect_mac80211() {
 			set wireless.radio${devidx}.band=${mode_band}
 			set wireless.radio${devidx}.htmode=$htmode
 			set wireless.radio${devidx}.disabled=0
-			set wireless.radio${devidx}.country=AU
+			set wireless.radio${devidx}.country=US
 			
 			set wireless.default_radio${devidx}=wifi-iface
 			set wireless.default_radio${devidx}.device=radio${devidx}
@@ -176,7 +176,7 @@ detect_mac80211() {
 			set wireless.default_radio${devidx}.mode=ap
             		set wireless.default_radio0.ssid=Redmi
             		set wireless.default_radio1.ssid=Redmi_5G
-			set wireless.default_radio${devidx}.encryption=psk-mixed
+			set wireless.default_radio${devidx}.encryption=psk2+aes
                         set wireless.default_radio${devidx}.key=1234567890
 EOF
 		uci -q commit wireless
