@@ -113,7 +113,7 @@
 +{
 +	u32 syscfg, xtal_sel, clkcfg, clk_sel, curclk, ffiv, ffrac;
 +	u32 pll, prediv, fbdiv;
-+    u32 xtal_clk, cpu_clk, bus_clk,i;
++     u32 xtal_clk, cpu_clk, bus_clk,i;
 +	const static u32 prediv_tbl[] = {0, 1, 2, 2};
 +
 +	syscfg = rt_sysc_r32(SYSC_REG_SYSTEM_CONFIG0);
@@ -157,8 +157,8 @@
 -			cpu_clk = 20 * fbdiv * 1000 * 1000;
 -		}
 +		pll = rt_memc_r32(MEMC_REG_CPU_PLL);
-+              pll &= ~(0x7ff);
-+              pll |=  (0x3B2);
++             pll &= ~(0x7ff);
++             pll |=  (0x3B2);
 +             rt_memc_w32(pll,MEMC_REG_CPU_PLL);
 +             for(i=0;i<1024;i++);
 +		fbdiv = (pll >> CPU_PLL_FBDIV_SHIFT) & CPU_PLL_FBDIV_MASK;
