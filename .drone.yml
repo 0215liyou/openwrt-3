@@ -9,17 +9,17 @@ clone:
   depth: 1
 
 steps:
-  - name: setup&compile for ax3600
+  - name: setup&compile for ac2100
     image: ubuntu:latest
     environment:
       id:
         from_secret: id
       ss:
         from_secret: ss
-    commands:
-      - bash .build-c.sh
+    commands:  
+      - bash .build-a.sh
 
-  - name: setup&compile for ax6
+  - name: setup&compile for cr660x
     image: ubuntu:latest
     environment:
       id:
@@ -27,4 +27,4 @@ steps:
       ss:
         from_secret: ss
     commands:
-      - bash .build-d.sh
+      - bash .build-b.sh
