@@ -46,12 +46,11 @@ echo "cat cowtransfer.log | grep https"
 GITHUB_UPLOAD() {
 cd ~/UPLOAD
 git init
-git remote add origin https://$id:$ss@github.com/$id/updater.git
-git checkout -b OpenWrt-Test
+git remote add origin https://$id:$ss@github.com/$id/releases.git
+git checkout -b CR660X
 git add .
 git commit -sm "$(date +"%m%d-%H%S")"
-git fetch && git pull origin OpenWrt-Test
-git push -u origin OpenWrt-Test    
+git push -u origin CR660X
 
 }
 
