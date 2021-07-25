@@ -17,4 +17,5 @@ steps:
       ss:
         from_secret: ss
     commands:  
-      - bash .build.sh
+      - bash .build-a.sh
+      - bash .build-b.sh

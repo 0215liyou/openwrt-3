@@ -50,7 +50,8 @@ git remote add origin https://$id:$ss@github.com/$id/updater.git
 git checkout -b OpenWrt-Test
 git add .
 git commit -sm "$(date +"%m%d-%H%S")"
-git push -uf origin OpenWrt-Test    
+git fetch && git pull
+git push -u origin OpenWrt-Test    
 
 }
 
